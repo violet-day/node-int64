@@ -191,7 +191,7 @@ Int64.prototype = {
   },
 
   toJSON: function(radix){
-    return this.valueOf().toString(radix || 10);
+    return this.toNumber(false);
   },
 
   /**
