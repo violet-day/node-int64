@@ -26,7 +26,7 @@
  * For details about IEEE-754 see:
  * http://en.wikipedia.org/wiki/Double_precision_floating-point_format
  */
-
+var biginteger = require('biginteger');
 // Useful masks and values for bit twiddling
 var MASK31 =  0x7fffffff, VAL31 = 0x80000000;
 var MASK32 =  0xffffffff, VAL32 = 0x100000000;
@@ -187,11 +187,11 @@ Int64.prototype = {
    * @param radix Just like Number#toString()'s radix
    */
   toString: function(radix) {
-    return this.valueOf().toString(radix || 10);
+    return biginteger.BigInteger.parse(this.toOctetString(), 16).toString(radix || 10);
   },
 
-  toJSON: function(radix){
-    return this.toNumber(false);
+  toJSON: function () {
+    return biginteger.BigInteger.parse(this.toOctetString(), 16).toString(10);
   },
 
   /**
