@@ -190,6 +190,10 @@ Int64.prototype = {
     return this.valueOf().toString(radix || 10);
   },
 
+  toJSON: function(radix){
+    return this.valueOf().toString(radix || 10);
+  },
+
   /**
    * Return a string showing the buffer octets, with MSB on the left.
    *
